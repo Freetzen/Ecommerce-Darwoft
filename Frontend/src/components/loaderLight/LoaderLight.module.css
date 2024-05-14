@@ -1,6 +1,6 @@
 .loaderLight{
     width: 100%;
-    height: 100vh;
+    min-height: calc(100vh - 168px - 85px);
     display: flex;
     align-items: center;
     justify-content: center;

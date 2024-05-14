@@ -9,6 +9,7 @@ import servicio from '../../../public/images/servicio.png'
 import Categories from '../../components/categories/Categories';
 import FeaturedProducts from '../../components/featuredProducts/FeaturedProducts'
 import Header from '../../components/header/Header'
+import LoaderLight from '../../components/loaderLight/LoaderLight'
 
 
 const Home = () => {

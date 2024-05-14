@@ -3,6 +3,7 @@ import { Outlet, useNavigate } from "react-router-dom"
 import localStorageProvider from '../../utils/localStorageProvider/localStorageProvider'
 import userProvider from '../../utils/userProvider/userProvider'
 import Swal from 'sweetalert2'
+import LoaderLight from '../loaderLight/LoaderLight'
 
 
 const ProtectedRouteUser = () => {
@@ -49,7 +50,9 @@ const ProtectedRouteUser = () => {
   return (
     <>
         {
-         !loading && <Outlet/>
+          loading 
+          ? <LoaderLight/>
+          : <Outlet/>
         }
     </>
   )

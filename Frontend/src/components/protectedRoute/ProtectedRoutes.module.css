@@ -1,0 +1,3 @@
+.protectedContainer{
+    min-height: calc(100vh - 168px - 85px);
+}

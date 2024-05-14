@@ -1,8 +1,10 @@
+import style from './ProtectedRoutes.module.css'
 import React, { useEffect, useState } from 'react'
 import { Outlet, useNavigate } from "react-router-dom"
 import localStorageProvider from '../../utils/localStorageProvider/localStorageProvider'
 import userProvider from '../../utils/userProvider/userProvider'
 import Swal from 'sweetalert2'
+import LoaderLight from '../loaderLight/LoaderLight'
 
 
 const ProtectedRouteAdmin = () => {
@@ -46,11 +48,13 @@ const ProtectedRouteAdmin = () => {
     
 
   return (
-    <>
+    <div className={style.protectedContainer}>
         {
-         !loading && <Outlet/>
+          loading 
+          ? <LoaderLight/>
+          : <Outlet/>
         }
-    </>
+    </div>
   )
 }
 
