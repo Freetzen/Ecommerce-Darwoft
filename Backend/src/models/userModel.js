@@ -1,40 +1,41 @@
-import { Schema, model } from "mongoose";
+import mongoose, { Schema, model } from "mongoose";
 
 const userSchema = new Schema({
   firstname: {
     type: String,
-    required: true
+    required: true,
   },
   lastname: {
     type: String,
-    required: true
-  },
-  image: {
-    type: String,
-    default: 'https://static.vecteezy.com/system/resources/previews/009/734/564/non_2x/default-avatar-profile-icon-of-social-media-user-vector.jpg'
-  },
-  banned: {
-    type: Boolean,
-    default: false,
-  },
-  purchases:{
-    type: Array,
-    default: []
-  },
-  role: {
-    type: String,
-    default: 'user'
+    required: true,
   },
   email: {
     type: String,
     required: true,
     unique: true,
   },
+  role: {
+    type: String,
+    default: "user",
+  },
+  purchases:[{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "ticket"
+  }],
+  image: {
+    type: String,
+    default:
+      "https://res.cloudinary.com/dmxmyxi1d/image/upload/v1715350891/iBuytech/perfil-default_vizwkx.png",
+  },
+  banned: {
+    type: Boolean,
+    default: false,
+  },
   password: {
     type: String,
     required: true,
   },
-});
+}, {timestamps: true});
 
 const userModel = model("user", userSchema)
 

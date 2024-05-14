@@ -1,0 +1,72 @@
+/* Navbar.module.css */
+
+.navbar {
+    background-color: #333;
+    color: #fff;
+    padding: 1rem;
+  }
+  
+  .navbarContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .navbarLogo img {
+    width: 45px;
+  }
+  
+  .navbarLinks {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .navbarLinks a {
+    color: #fff;
+    text-decoration: none;
+    margin-right: 1rem;
+  }
+  
+  .navbarToggle {
+    cursor: pointer;
+    display: none;
+  }
+  
+  .navbarToggle .icon {
+    color: white;
+    width: 24px;
+    height: 24px;
+    background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Hamburger_icon.svg/1200px-Hamburger_icon.svg.png');
+  }
+  
+  @media screen and (max-width: 768px) {
+    .navbarLinks {
+      display: none;
+      flex-direction: column;
+      background-color: #333;
+      position: absolute;
+      top: 90px;
+      margin-bottom: 20px;
+      left: 0;
+      width: 100%;
+      z-index: 1;
+    }
+  
+    .navbarLinks {
+        padding-top: 1px;
+    }
+
+    .navbarLinks a{
+        padding-bottom: 30px;
+    }
+
+    .navbarLinks.active {
+      display: flex;
+    }
+  
+    .navbarToggle {
+      display: block;
+    }
+  }
+  

@@ -1,0 +1,3 @@
+.cartContainer{
+    min-height: calc(100vh - 150px - 61px);
+}

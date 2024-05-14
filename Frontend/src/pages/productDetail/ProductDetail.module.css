@@ -1,0 +1,167 @@
+.containerDetail{
+    display: flex;
+    justify-content: center
+}
+
+.divImg img{
+    width: 72%;
+}
+.divImg{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 70%;
+    overflow: hidden;
+}
+
+.divImg img:hover{
+    transform: scale(1.1); 
+    transition: transform 0.3s ease;
+}
+
+.sectionDetail{
+    display: flex;
+    flex-direction: column;
+}
+.sectionDetail{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.containerInfoDetail{
+    width: 100%;
+    padding: 30px;
+}
+
+.sectionDescription{
+    padding: 30px;
+}
+
+.containerButtonInput input{
+    width: 162px;
+    margin-right: 10px;
+    height: 35px;
+    border-radius: 10px;
+    border: 1px solid black;
+    padding: 10px;
+    text-align: center;
+}
+.containerButtonInput button{
+    width: 162px;
+}
+
+.sectionRelatedProducts{
+    margin-top: 90px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.buttonProducts{
+    padding: 10px;
+    border: 1px solid white;
+    background-color: #333;
+    color: white;
+    font-size: 15px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+.buttonProducts:hover{
+    background-color:#333333a2;
+}
+
+.buttonProducts{
+    text-align: center;
+}
+
+.h1Desktop{
+    display: none;
+}
+
+.sectionDetail .h1Mobile{
+    margin-top: 40px;
+    font-size: 30px;
+}
+
+.sectionRelatedProducts{
+    border-top: 1px solid rgba(0, 0, 0, 0.082);
+    padding: 30px;
+    border-top-width: 50%
+}
+
+.sectionCallToAction {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40vh;
+    background-image: url('../../../public/images/wave.svg');
+    background-repeat: no-repeat;
+    background-size: cover; /* Para que la imagen se ajuste al tamaño de la sección */
+    background-position: center; /* Para centrar la imagen */
+}
+
+@media screen and (min-width: 750px) {
+    .h1Mobile{
+        display: none;
+    }
+
+    .h1Desktop{
+        display: block;
+        font-size: 30px;
+    }
+
+    .sectionDetail{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .containerButtonInput{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .containerInfoDetail{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .divImg{
+        width: 40%;
+    }
+    .containerInfoDetail{
+        width: 40%;
+    }
+
+    .productAccordion{
+        display: flex;
+    }
+
+    .containerInfoDetail .h1Desktop, h3, p{
+        margin-bottom: 10px;
+
+    }
+
+    .containerButtonInput input{
+        width: 162px;
+    }
+    .containerButtonInput button{
+        width: 162px;
+    }
+
+}
+
+@media screen and (max-width: 1200px) {
+
+    .divImg img{
+        width: 100% !important;
+    }
+}

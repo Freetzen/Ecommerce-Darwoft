@@ -1,0 +1,37 @@
+.navPanelAdmin{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+    margin-top: 25px;
+    margin-bottom: 50px;
+}
+
+.containerPanelAdmin{
+    display: flex;
+    flex-direction: column;
+    min-height: calc(100vh - 170px - 85px);
+}
+
+.navPanelAdmin .buttonRef{
+    padding: 10px;
+    margin: 10px;
+    border: 1px solid white;
+    background-color: #1D1D1D;
+    color: white;
+    font-size: 15px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+.navPanelAdmin .buttonRef:hover{
+    background-color:rgb(168, 168, 168);
+    color: #1D1D1D;
+}
+
+.isActive{
+    background-color:rgb(168, 168, 168) !important;
+    color: #1D1D1D !important;
+}

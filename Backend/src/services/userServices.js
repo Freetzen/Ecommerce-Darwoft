@@ -2,7 +2,7 @@ import userModel from "../models/userModel.js";
 
 export const findUsers = async () => {
     try {
-        return await userModel.find();
+        return await userModel.find().select('-password')
     } catch (error) {
         throw new Error(error);
     }
@@ -44,7 +44,7 @@ export const deleteUser = async (id) => {
 
 export const updateUser = async (id, info) => {
     try {
-        return await userModel.findByIdAndUpdate(id, info);
+        return await userModel.findByIdAndUpdate(id, info,{new: true});
     } catch (error) {
         throw new Error(error);
     }

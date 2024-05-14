@@ -1,13 +1,21 @@
-
+import { Schema, model } from "mongoose";
 
 const ProductSchema = new Schema({
-  name: {
+  title: {
     type: String,
-    required: tru
+    required: true
   },
   description: {
     type: String,
     required: true
+  },
+  image: {
+    type: String,
+    required: true
+  },
+  active: {
+    type: Boolean,
+    default: true
   },
   price: {
     type: Number,
@@ -15,11 +23,14 @@ const ProductSchema = new Schema({
   },
   stock:{
     type: Number,
-    default: 0
+    required: true
+  },
+  featured: {
+    type: Boolean,
+    default: false
   },
   category: {
-    type: Array,
-    default: [],
+    type: String,
     required: true
   },
   createdAt: {
@@ -28,3 +39,6 @@ const ProductSchema = new Schema({
   }
 });
   
+const productModel = model("product", ProductSchema)
+
+export default productModel;

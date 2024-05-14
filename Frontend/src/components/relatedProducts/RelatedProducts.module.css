@@ -1,0 +1,13 @@
+.containerCardProducts{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media screen and (max-width: 850px) {
+    .containerCardProducts{
+        display: grid;
+        justify-items: center;
+        grid-template-columns: 1fr 1fr;
+    }
+}

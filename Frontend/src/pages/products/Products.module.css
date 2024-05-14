@@ -1,0 +1,52 @@
+.productsContainer {
+    display: flex;
+    width: 100%;
+    margin: 15px;
+    min-height: calc(100vh - 168px - 85px);
+}
+
+.filtersDiv {
+    width: 10%;
+}
+
+.productsDiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.productsDiv>* {
+    flex: 1 1 25%;
+    /* Establece que cada elemento ocupe el 25% del contenedor (4 elementos por fila) */
+    max-width: 20%;
+    /* Limita el ancho máximo de cada elemento */
+}
+
+@media (max-width: 768px) {
+
+    .productsContainer {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .productsDiv {
+        display: flex;
+        flex-direction: row;
+        /* Cambia la dirección a columnas cuando el ancho de la pantalla sea menor a 768px */
+    }
+
+    .productsDiv>* {
+        flex: 1 1 100%;
+        /* Cada elemento ocupará toda la anchura disponible en una sola columna */
+        max-width: 40%;
+        /* Establece el ancho máximo al 100% */
+    }
+
+}
+
+@media screen and (max-width: 640px) {
+
+}

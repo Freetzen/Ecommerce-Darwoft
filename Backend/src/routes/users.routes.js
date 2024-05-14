@@ -1,15 +1,23 @@
 import express from "express";
-import postUserController from "../controllers/postUserController.js";
-import putUserController from "../controllers/putUserController.js";
-import getUserController from "../controllers/getUserController.js";
-import authUser from "../middlewares/authUser.js";
-import putUserAdminController from "../controllers/putUserAdminController.js";
+import authAdmin from "../middlewares/authAdmin.js";
+import userController from "../controllers/userController.js";
+import validateUser from "../utils/validateUser.js";
+import userValidate from "../middlewares/user.validate.js";
+import adminOrUser from "../utils/adminOrUser.js";
 
 const router = express.Router()
 
-router.put('/register', putUserController)
-router.post('/useradmin', authUser, putUserAdminController)
-router.post('/register', postUserController)
-router.post('/login', getUserController)
+router.post('/validate', validateUser) //Persistencia de datos
+router.get('/validate', adminOrUser) //Validamos si es Admin o User
+
+//Users
+router.post('/login',userValidate.validateLoginUser,  userController.getUser) //Login
+router.post('/register', userValidate.validatePostUser, userController.postUser) //Register
+router.put('/user', userController.putUser) //Update user
+
+//Admin
+router.route('/user-admin')
+    .get(authAdmin , userController.getAllUsers) //Get all users
+    .post(authAdmin, userController.putAdminUser) //Update user (banned, role)
 
 export default router

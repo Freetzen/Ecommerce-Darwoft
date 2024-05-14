@@ -1,0 +1,19 @@
+.productAccordion{
+    margin: 30px;
+}
+
+.accordionTitle{
+    cursor: pointer;
+}
+
+.accordionHeader{
+    display: flex;
+    justify-content: center;
+    padding-left: 90px;
+    padding-right: 90px;
+    padding-top: 10px;
+}
+
+.accordionHeader p{
+    text-align: center;
+}

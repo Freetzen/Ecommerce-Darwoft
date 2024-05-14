@@ -1,0 +1,40 @@
+.prodCardsContainer {
+    padding: 15px 80px;
+    justify-content: space-between;
+    display: flex;
+    width: 100%;
+}
+
+.trInfoUsers td button{
+    padding: 10px;
+    margin: 10px;
+    border: 1px solid white;
+    background-color: #1D1D1D;
+    color: white;
+    font-size: 15px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+.trInfoUsers td button:hover{
+    background-color:rgb(168, 168, 168);
+    color: #1D1D1D;
+}
+
+.tdButtonUsers{
+    text-align: center;
+}
+
+.banned{
+    color: green;
+}
+
+.isBanned{
+    color: rgb(180, 3, 3);
+}
+
+@media(max-width: 700px){
+    
+}
