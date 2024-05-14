@@ -102,7 +102,8 @@ export const getTicketsAdmin = createAsyncThunk(
   const productSlice = createSlice({
     name: "product", // Slice
     initialState: {
-      products: null
+      products: null,                               
+      productsFilter: null
     },
     reducers: {
       // Funciones para modificar el state relacionado con product.
@@ -116,17 +117,26 @@ export const getTicketsAdmin = createAsyncThunk(
         if (index !== -1) {
           state.products[index] = updatedProduct;
         }
+        state.productsFilter = {...state.products}
+      },
+      productFilters(state, action) {
+        if(action.payload === 'reset') return state.productsFilter = {...state.products}
+        state.productsFilter = state.products.filter((item)=>item.category === action.payload)
       }
     },
     extraReducers: (builder) => {
       builder.addCase(getAllProducts.fulfilled, (state, action) => {
         state.products = action.payload.data;
+        state.productsFilter = action.payload.data;
       }),
       builder.addCase(createProduct.fulfilled, (state, action) => {
         state.products.push(action.payload.data)
+        state.productsFilter = state.products
       }),
       builder.addCase(deleteProductAdmin.fulfilled, (state, action) => {
-        state.products = state.products.filter(product => product._id !== action.payload)
+        const updateState = state.products.filter(product => product._id !== action.payload)
+        state.products = updateState
+        state.productsFilter = updateState
       })
       builder.addCase(putProductAdmin.fulfilled, (state, action) => {
         const updatedProduct = action.payload;
@@ -138,5 +148,5 @@ export const getTicketsAdmin = createAsyncThunk(
     },
   }); 
   
-export const {deletedProduct} = productSlice.actions // Convertimos las funciones en acciones y las exportamos.
+export const {deletedProduct, productUpdated, productFilters} = productSlice.actions // Convertimos las funciones en acciones y las exportamos.
   export default productSlice.reducer;

@@ -2,17 +2,20 @@ import style from './AllUsersAdmin.module.css'
 import { useEffect, useState } from 'react'
 import userProvider from '../../../utils/userProvider/userProvider'
 import AllUsersAdminCards from '../allUsersAdminCards/AllUsersAdminCards'
+import LoaderLight from '../../loaderLight/LoaderLight'
 
-const AllUsersAdmin = ({setSelectOption, allUsers, setAllUsers}) => {
+const AllUsersAdmin = ({setSelectOption, allUsers, setAllUsers, setLoading, loading}) => {
 
   const [searchTerm, setSearchTerm] = useState('');
   const [filteredUsers, setFilteredUsers] = useState([]);
 
   useEffect(() => {
-   const all = async ()=> {
-    const users = await userProvider.adminGetAllUsers()
-    setAllUsers(users.data)
-    setFilteredUsers(users.data)
+    setLoading(true)
+    const all = async ()=> {
+      const users = await userProvider.adminGetAllUsers()
+      setAllUsers(users.data)
+      setFilteredUsers(users.data)
+      setLoading(false)
    }
    all()
   }, [])
@@ -29,7 +32,12 @@ const AllUsersAdmin = ({setSelectOption, allUsers, setAllUsers}) => {
    }, [searchTerm])
 
   return (
-    <div className={style.tableUsers}>
+    <>
+    {
+      loading
+      ? (<LoaderLight/>)
+      :(
+        <div className={style.tableUsers}>
       <div className={style.inputSearch}>
       <input type="text" placeholder='Buscar por email...' onChange={(e) => setSearchTerm(e.target.value)}/>
       </div>
@@ -59,6 +67,9 @@ const AllUsersAdmin = ({setSelectOption, allUsers, setAllUsers}) => {
       </table>
       
     </div>
+      )
+    }
+    </>
   )
 }
 

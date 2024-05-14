@@ -5,7 +5,8 @@ import AdminProductsCards from '../adminProductsCards/AdminProductsCards'
 import { deleteProductAdmin, deletedProduct, getAllProductsAdmin } from '../../../redux/productSlice'
 import { useDispatch } from 'react-redux'
 import Swal from 'sweetalert2'
-const AllProductsAdmin = ({selectOption, setSelectOption}) => {
+import LoaderLight from '../../loaderLight/LoaderLight'
+const AllProductsAdmin = ({setSelectOption, setLoading, loading}) => {
 
   const dispatch = useDispatch()
 
@@ -14,10 +15,12 @@ const AllProductsAdmin = ({selectOption, setSelectOption}) => {
   const [filteredProducts, setFilteredProducts] = useState([]);
 
   useEffect(() => {
+    setLoading(true)
    const getProducts = async () => {
     const products = await dispatch(getAllProductsAdmin())
     setAllProducts(products.payload.data)
     setFilteredProducts(products.payload.data)
+    setLoading(false)
   }
   getProducts()
   }, [])
@@ -60,35 +63,45 @@ const AllProductsAdmin = ({selectOption, setSelectOption}) => {
    }
 
   return (
-    <div className={style.tableProducts}>
-      <div className={style.inputSearch}>
-      <input type="text" placeholder='Buscar por titulo...' onChange={(e) => setSearchTerm(e.target.value)}/>
-      </div>
-      <table>
-        <thead>
-        <tr className={style.trTitlesProducts}>
-          <th>Titulo</th>
-          <th>Precio</th>
-          <th>Stock</th>
-          <th className={style.thButtonProducts}>Acción</th>
-          <th className={style.thButtonTrash}>Eliminar</th>
-        </tr>
-        </thead>
-        <tbody>
-        {filteredProducts?.map((e) => (
-          <AdminProductsCards
-            key={e._id}
-            handleDelete={handleDelete}
-            setSelectOption={setSelectOption}
-            stock={e.stock}
-            title={e.title}
-            price={e.price}
-            id={e._id}
-          />
-        ))}
-        </tbody>
-      </table>
-    </div>
+    <>
+      {loading 
+      ? (<LoaderLight />) 
+      : (
+        <div className={style.tableProducts}>
+          <div className={style.inputSearch}>
+            <input
+              type="text"
+              placeholder="Buscar por titulo..."
+              onChange={(e) => setSearchTerm(e.target.value)}
+            />
+          </div>
+          <table>
+            <thead>
+              <tr className={style.trTitlesProducts}>
+                <th>Titulo</th>
+                <th>Precio</th>
+                <th>Stock</th>
+                <th className={style.thButtonProducts}>Acción</th>
+                <th className={style.thButtonTrash}>Eliminar</th>
+              </tr>
+            </thead>
+            <tbody>
+              {filteredProducts?.map((e) => (
+                <AdminProductsCards
+                  key={e._id}
+                  handleDelete={handleDelete}
+                  setSelectOption={setSelectOption}
+                  stock={e.stock}
+                  title={e.title}
+                  price={e.price}
+                  id={e._id}
+                />
+              ))}
+            </tbody>
+          </table>
+        </div>
+      )}
+    </>
   );
 }
 

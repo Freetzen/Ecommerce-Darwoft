@@ -2,17 +2,19 @@ import style from './Products.module.css'
 import { useSelector } from 'react-redux'
 import CardProduct from '../../components/cardProduct/CardProduct'
 import Filters from '../../components/filters/Filters'
+import { useState } from 'react'
 
-const Products = () => {
+const Products = ({categoryFilter, setCategoryFilter}) => {
 
-    const {products} = useSelector((state) => state.product)
+    const {products, productsFilter} = useSelector((state) => state.product)
+
   return (
     <div className={style.productsContainer}>
       <div className={style.filtersDiv}>
-        <Filters/>
+        <Filters categoryFilter={categoryFilter} setCategoryFilter={setCategoryFilter}/>
       </div>
       <div className={style.productsDiv}>
-        {products?.map((item) => (
+        {productsFilter?.map((item) => (
           <CardProduct
             key={item._id}
             id={item._id}

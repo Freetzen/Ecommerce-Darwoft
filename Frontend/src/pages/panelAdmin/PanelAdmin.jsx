@@ -15,6 +15,7 @@ const PanelAdmin = () => {
     className:''
   })
   const [allUsers, setAllUsers] = useState([])
+  const [loading, setLoading] = useState(true)
 
   const handleClick = (e) => {
     setSelectOption({
@@ -23,24 +24,29 @@ const PanelAdmin = () => {
     })
   }
 
+  const activeProducts = selectOption.option === 'products' || selectOption.option === 'detail'
+  const activeUsers = selectOption.option === 'users' || selectOption.option === 'userDetail'
+  const activeCreateProduct = selectOption.option === 'create'
+  const activeSales = selectOption.option === 'sales'
+
   return (
     <div className={style.containerPanelAdmin}>
       <div className={style.navPanelAdmin}>
-        <button onClick={handleClick} className={`${style.buttonRef}`} name='products'>Productos</button>
-        <button onClick={handleClick} className={`${style.buttonRef}`} name='create'>Crear Producto</button>
-        <button onClick={handleClick} className={`${style.buttonRef}`} name='users'>Usuarios</button>
-        <button onClick={handleClick} className={`${style.buttonRef}`} name='sales'>Ventas</button>
+        <button onClick={handleClick} className={`${style.buttonRef} ${activeProducts ? style.isActive : ''}`} name='products'>Productos</button>
+        <button onClick={handleClick} className={`${style.buttonRef} ${activeCreateProduct ? style.isActive : ''}`} name='create'>Crear Producto</button>
+        <button onClick={handleClick} className={`${style.buttonRef} ${activeUsers ? style.isActive : ''}`} name='users'>Usuarios</button>
+        <button onClick={handleClick} className={`${style.buttonRef} ${activeSales ? style.isActive : ''}`} name='sales'>Ventas</button>
       </div>
       <div>
         {
           !selectOption
           ? null
           : selectOption.option === 'products'
-          ? <AllProductsAdmin  setSelectOption={setSelectOption}/>
+          ? <AllProductsAdmin  setSelectOption={setSelectOption} setLoading={setLoading} loading={loading}/>
           : selectOption.option === 'create'
           ? <CreateProduct setSelectOption={setSelectOption}/>
           : selectOption.option === 'users'
-          ? <AllUsersAdmin setSelectOption={setSelectOption} allUsers={allUsers} setAllUsers={setAllUsers}/>
+          ? <AllUsersAdmin setSelectOption={setSelectOption} allUsers={allUsers} setAllUsers={setAllUsers} setLoading={setLoading} loading={loading}/>
           : selectOption.option === 'sales'
           ? <AllSalesAdmin/>
           : selectOption.option === 'detail'

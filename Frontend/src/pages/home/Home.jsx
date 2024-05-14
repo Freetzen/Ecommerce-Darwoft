@@ -12,13 +12,13 @@ import Header from '../../components/header/Header'
 import LoaderLight from '../../components/loaderLight/LoaderLight'
 
 
-const Home = () => {
+const Home = ({setCategoryFilter}) => {
   const products = useSelector((state) => state.product.products)
 
   return (
     <div>
       <Header />
-      <Categories />
+      <Categories setCategoryFilter={setCategoryFilter}/>
       <section className={style.aboutUs}>
         <div>
           <p>

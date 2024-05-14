@@ -18,6 +18,7 @@ import Products from './pages/products/Products'
 import Cart from './pages/cart/Cart'
 import ProtectedRouteAdmin from './components/protectedRoute/ProtectedRouteAdmin'
 import ProtectedRouteUser from './components/protectedRoute/ProtectedRouteUser'
+import NotFound from './components/NotFound/NotFound'
 axios.defaults.baseURL = import.meta.env.VITE_BASE_URL
 
 
@@ -25,6 +26,7 @@ const token = localStorageProvider.getToken()
 function App() {
 
   const [loading, setLoading] = useState(false)
+  const [categoryFilter, setCategoryFilter] = useState('')
 
   const dispatch = useDispatch();
 
@@ -47,9 +49,8 @@ function App() {
   return (
     <>
     <NavBar loading={loading}/>
-    <main>
       <Routes>
-        <Route path='/' element={<Home/>}/>
+        <Route path='/' element={<Home setCategoryFilter={setCategoryFilter}/>}/>
         <Route path='/register' element={<Register/>}/>
         <Route path='/login' element={<Login/>}/>
 
@@ -62,11 +63,11 @@ function App() {
         <Route path='/account' element={<PanelUser loading={loading}/>}/>
         </Route>
 
-        <Route path='/products' element={<Products/>}/>
+        <Route path='/products' element={<Products categoryFilter={categoryFilter} setCategoryFilter={setCategoryFilter}/>}/>
         <Route path='/products/:id' element={<ProductDetail/>}/>
         <Route path='/cart' element={<Cart/>}/>
+        <Route path='*' element={<NotFound/>}/>
       </Routes>
-      </main>
       <Footer />
     </>
   )

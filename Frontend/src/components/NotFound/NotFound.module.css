@@ -1,0 +1,7 @@
+.notFoundContainer{
+    min-height: calc(100vh - 168px - 85px);
+/*     background-image: url('../../../public/images/404NotFound.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat; */
+}

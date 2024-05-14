@@ -10,21 +10,10 @@ const ProtectedRouteUser = () => {
     const navigate = useNavigate()
     const [loading, setLoading] = useState(true)
     const token = localStorageProvider.getToken()
-    console.log(token)
     
     const validatingUser = async () => {
         try {
             const val = await userProvider.protectedRouteValidate()
-           /*  if(val.data.isAdmin){
-                Swal.fire({
-                    position: "center",
-                    icon: "error",
-                    title: `No tienes permisos`,
-                    showConfirmButton: false,
-                    timer: 1200,
-                  });
-              return navigate('/')
-            } */
             setLoading(false)
 
         } catch (error) {

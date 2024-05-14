@@ -22,7 +22,7 @@ try {
 
     throw new Error("Error en token");
 } catch (error) {
-    console.log(error)
+    res.json({success: false, message: error.message})
 }
 }
 
