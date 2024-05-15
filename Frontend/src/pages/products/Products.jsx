@@ -2,11 +2,11 @@ import style from './Products.module.css'
 import { useSelector } from 'react-redux'
 import CardProduct from '../../components/cardProduct/CardProduct'
 import Filters from '../../components/filters/Filters'
-import { useState } from 'react'
+import { useEffect } from 'react'
 
 const Products = ({categoryFilter, setCategoryFilter}) => {
 
-    const {products, productsFilter} = useSelector((state) => state.product)
+    const {productsFilter} = useSelector((state) => state.product)
 
   return (
     <div className={style.productsContainer}>

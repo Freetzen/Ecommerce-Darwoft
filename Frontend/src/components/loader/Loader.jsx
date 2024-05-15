@@ -8,10 +8,6 @@ const Loader = () => {
         <div className={style.loaderBlock}></div>
         <div className={style.loaderBlock}></div>
         <div className={style.loaderBlock}></div>
-        <div className={style.loaderBlock}></div>
-        <div className={style.loaderBlock}></div>
-        <div className={style.loaderBlock}></div>
-        <div className={style.loaderBlock}></div>
       </div>
     </div>
   );

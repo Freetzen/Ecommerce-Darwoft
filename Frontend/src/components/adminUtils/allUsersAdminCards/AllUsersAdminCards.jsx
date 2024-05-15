@@ -15,7 +15,7 @@ const AllUsersAdminCards = ({setSelectOption, role, banned, id, email}) => {
     <tr className={style.trInfoUsers}>
       <td>{email}</td>
       <td>{role}</td>
-      <td >{!banned ? <FaCheck className={style.banned}/> : <FaBan className={style.isBanned}/>}</td>
+      <td className={style.tdStatus}>{!banned ? <FaCheck className={style.banned}/> : <FaBan className={style.isBanned}/>}</td>
       <td className={style.tdButtonUsers}>
         <button onClick={handleClick} name="userDetail">
           Editar

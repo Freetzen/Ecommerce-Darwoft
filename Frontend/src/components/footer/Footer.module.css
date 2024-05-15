@@ -89,6 +89,11 @@
     justify-content: center;
   }
 
+  .footerSocial .footerSocialSvg{
+    font-size: 30px;
+      margin: 10px;
+  }
+
   .footerSocial a {
     margin: 0 10px;
   }

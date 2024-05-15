@@ -1,5 +1,9 @@
 .productsContainer {
+    margin-top: 30px;
     display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
     width: 100%;
     min-height: calc(100vh - 168px - 85px);
 }
@@ -19,13 +23,24 @@
     flex-wrap: wrap;
     width: 100%;
     margin-top: 40px;
-    margin-bottom: 40px;
 
 }
 
 .productsDiv>* {
     flex: 1 1 25%;
     max-width: 20%;
+}
+
+.sectionCallToAction {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40vh;
+    background-image: url('../../../public/images/wave.svg');
+    background-repeat: no-repeat;
+    background-size: cover; /* Para que la imagen se ajuste al tamaño de la sección */
+    background-position: center; /* Para centrar la imagen */
 }
 
 @media (max-width: 1200px) {

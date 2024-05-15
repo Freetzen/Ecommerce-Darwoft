@@ -5,6 +5,8 @@ import { RxHamburgerMenu } from "react-icons/rx";
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { logout } from '../../redux/authSlice';
+import { IoBagOutline } from "react-icons/io5";
+import Loader from '../loader/Loader';
 
 const NavBar = ({ loading }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -33,6 +35,10 @@ const NavBar = ({ loading }) => {
           <Link to="/" onClick={toggleNavbar}>Home</Link>
           <Link to="/products" onClick={toggleNavbar}>Products</Link>
           {
+            loading
+            ? <Loader/>
+            : <>
+            {
             !user ? (
               <>
                 <Link to="/register" onClick={toggleNavbar}>Register</Link>
@@ -43,7 +49,7 @@ const NavBar = ({ loading }) => {
                 {user?.role === 'admin' 
                 ? <Link to="/backoffice" onClick={toggleNavbar}>Admin</Link> 
                 : (
-                <>
+                  <>
                 <Link to="/account" onClick={toggleNavbar}>Account</Link>
                 <Link to="/contact" onClick={toggleNavbar}>Contact</Link>
                 </>)
@@ -52,9 +58,13 @@ const NavBar = ({ loading }) => {
               </>
             )
           }
+            </>
+          }
+          <Link to={'/cart'} className={style.iconBagDesktop}><IoBagOutline/></Link>
         </div>
-        <div className={style.navbarToggle} onClick={toggleNavbar}>
-          <span className={style.icon}>
+        <div className={style.navbarToggle} >
+          <Link to={'/cart'} className={style.iconBag}><IoBagOutline/></Link>
+          <span className={style.icon} onClick={toggleNavbar}>
             <RxHamburgerMenu />
           </span>
         </div>

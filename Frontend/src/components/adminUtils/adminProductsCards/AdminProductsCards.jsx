@@ -14,7 +14,7 @@ const AdminProductsCards = ({title, id, price, stock, setSelectOption, handleDel
     <tr className={style.trInfoProducts}>
       <td>{title}</td>
       <td>$ {price.toLocaleString('es-ES')}</td>
-      <td>{stock}</td>
+      <td className={style.tdStock}>{stock}</td>
       <td className={style.tdButtonProducts}>
         <button onClick={handleClick} name="detail">
           Editar

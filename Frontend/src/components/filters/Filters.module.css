@@ -1,0 +1,23 @@
+.filerDiv{
+    width: 20%;
+}
+
+
+
+@media (max-width: 1200px) {
+
+.filterContainer{
+    margin-top: 15px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.filerDiv{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+}

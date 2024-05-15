@@ -12,17 +12,18 @@ import Header from '../../components/header/Header'
 import LoaderLight from '../../components/loaderLight/LoaderLight'
 
 
-const Home = ({setCategoryFilter}) => {
+const Home = ({categoryFilter, setCategoryFilter}) => {
   const products = useSelector((state) => state.product.products)
 
   return (
     <div>
       <Header />
       <Categories setCategoryFilter={setCategoryFilter}/>
+      
       <section className={style.aboutUs}>
         <div>
-          <p>
-            <span>Somos el distribuidor de Apple</span>
+          <p className={style.pDistribution}>
+            Somos el distribuidor de Apple
           </p>
           <p>más importante del país.</p>
         </div>

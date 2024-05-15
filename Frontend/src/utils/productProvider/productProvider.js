@@ -1,7 +1,7 @@
 import axios from "axios"
 import localStorageProvider from "../localStorageProvider/localStorageProvider"
 const cloudName = import.meta.env.VITE_CLOUDINARY_CLOUDNAME
-const token = localStorageProvider.getToken()
+
 
 const productProvider = {
   async getProducts() {
@@ -14,6 +14,7 @@ const productProvider = {
   },
   async getProductsAdmin() {
     try {
+      const token = localStorageProvider.getToken()
       const products = await axios.get("/api/products-admin", {
         headers: {
           Authorization: `Bearer ${token}`,
@@ -34,6 +35,7 @@ const productProvider = {
   },
   async postProduct(product) {
     try {
+      const token = localStorageProvider.getToken()
       const products = await axios.post("/api/products", product, {
         headers: {
           Authorization: `Bearer ${token}`,
@@ -46,6 +48,7 @@ const productProvider = {
   },
   async PutProducts(product) {
     try {
+      const token = localStorageProvider.getToken()
       const products = await axios.put("/api/products", product,{
         headers: {
           Authorization: `Bearer ${token}`,
@@ -58,6 +61,7 @@ const productProvider = {
   },
   async deleteProducts(id) {
     try {
+      const token = localStorageProvider.getToken()
       const products = await axios.delete(`/api/products?id=${id}`, {
         headers: {
           Authorization: `Bearer ${token}`,

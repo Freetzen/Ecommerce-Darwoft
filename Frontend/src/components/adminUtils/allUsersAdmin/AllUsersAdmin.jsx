@@ -27,7 +27,7 @@ const AllUsersAdmin = ({setSelectOption, allUsers, setAllUsers, setLoading, load
     setFilteredUsers(filtered);
   }
 
-  useEffect(() => {
+  useEffect(() => { 
     handleSearch()
    }, [searchTerm])
 
@@ -46,7 +46,7 @@ const AllUsersAdmin = ({setSelectOption, allUsers, setAllUsers, setLoading, load
         <tr className={style.trEmailsUsers}>
           <th>Email</th>
           <th>Rol</th>
-          <th>Estado</th>
+          <th className={style.thStatus}>Estado</th>
           <th className={style.thButtonUsers}>Acción</th>
         </tr>
         </thead>

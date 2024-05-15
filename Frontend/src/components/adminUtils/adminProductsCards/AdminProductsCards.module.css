@@ -41,7 +41,9 @@
     color: rgb(255, 0, 0);
 }
 
-@media screen and (max-width: 640px) {
-
+@media screen and (max-width: 600px) {
+    .tdStock{
+        display: none;
+    }
 }
 

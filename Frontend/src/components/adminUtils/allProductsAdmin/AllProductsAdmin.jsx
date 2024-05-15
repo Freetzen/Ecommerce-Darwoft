@@ -80,7 +80,7 @@ const AllProductsAdmin = ({setSelectOption, setLoading, loading}) => {
               <tr className={style.trTitlesProducts}>
                 <th>Titulo</th>
                 <th>Precio</th>
-                <th>Stock</th>
+                <th className={style.thStock}>Stock</th>
                 <th className={style.thButtonProducts}>Acción</th>
                 <th className={style.thButtonTrash}>Eliminar</th>
               </tr>

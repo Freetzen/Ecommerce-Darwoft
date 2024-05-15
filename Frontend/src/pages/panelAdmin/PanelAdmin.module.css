@@ -35,3 +35,11 @@
     background-color:rgb(168, 168, 168) !important;
     color: #1D1D1D !important;
 }
+
+@media screen and (max-width: 500px) {
+    .navPanelAdmin .buttonRef{
+        padding: 8px;
+        margin: 5px;
+        font-size: 13px;
+    }
+}

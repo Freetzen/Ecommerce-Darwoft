@@ -1,41 +1,44 @@
-.tableProducts{
-padding: 10px;
+.tableProducts {
+    padding: 10px;
 }
 
-.tableProducts table{
+.tableProducts table {
     border-collapse: collapse;
     border-spacing: 0;
     width: 100%;
     border: 1px solid #ddd;
 }
 
-.tableProducts table th, td{
+.tableProducts table th,
+td {
     text-align: left;
     padding: 8px;
 }
 
-tr:nth-child(even){background-color: #f2f2f2}
+tr:nth-child(even) {
+    background-color: #f2f2f2
+}
 
-.trTitlesProducts{
+.trTitlesProducts {
     color: #1D1D1D;
 }
 
-.trTitlesProducts .thButtonProducts{
+.trTitlesProducts .thButtonProducts {
     text-align: center;
 }
 
-.trTitlesProducts .thButtonTrash{
+.trTitlesProducts .thButtonTrash {
     text-align: center;
 }
 
-.inputSearch{
+.inputSearch {
     display: flex;
     justify-content: center;
     align-items: center;
     margin-bottom: 30px;
 }
 
-.inputSearch input{
+.inputSearch input {
     padding: 8px;
     width: 200px;
     border: 1px solid #1D1D1D;
@@ -43,11 +46,17 @@ tr:nth-child(even){background-color: #f2f2f2}
 }
 
 @media (min-width: 1297px) {
-    .tableProducts{
+    .tableProducts {
         padding: 120px;
-        }
+    }
 }
 
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 600px) {
+    .thStock {
+        display: none;
+    }
 
+    .thStock {
+        display: none;
+    }
 }

@@ -1,10 +1,11 @@
 .loader {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-end;
     width: 80px;
-    height: 80px;
-    margin-right: 55px;
+    height: 0px;
+    margin-right: 20px;
+    margin-bottom: 4px;
     position: relative;
 }
 

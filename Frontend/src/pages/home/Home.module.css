@@ -95,6 +95,10 @@
     width: 320px;
 }
 
+.aboutUs div .pDistribution{
+    font-size: 24px;
+}
+
 @media screen and (max-width: 1130px) {
     .policies{
         display: grid;
@@ -114,11 +118,11 @@
     }
 
     .sectionPayment div .paymentMp{
-        width: 100px;
+        width: 80px;
         margin-right: 15px;
         margin-left: 0px;
     }
     .sectionPayment div .paymentCards{
-        width: 320px;
+        width: 271px;
     }
 }
