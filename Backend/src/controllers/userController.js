@@ -29,8 +29,7 @@ const userController = {
           //si es null, lo evita. No estamos seguros si existe o no.
           const validatePass = bcrypt.compareSync(password, userDB.password);
           if (validatePass) {
-            if (userDB.banned)
-              throw new Error("Usted se encuentra baneado de nuestra App.");
+            if(userDB.banned) throw new Error('Usted se encuentra baneado de nuestra App.')
             const payload = {
               email: userDB.email,
               role: userDB.role,
@@ -42,10 +41,12 @@ const userController = {
               id: userDB._id,
               firstname: userDB.firstname,
               lastname: userDB.lastname,
-              image: userDB.image,
+              image: userDB.image
             };
             const token = generateToken(payload);
-            return res.status(200).json({ success: true, data: user, token });
+            return res
+              .status(200)
+              .json({ success: true, data: user, token })
           }
           throw new Error(wrongCredentials);
         }
@@ -62,10 +63,10 @@ const userController = {
 
       const firstname = capitalizeFirstLetter(user.firstname);
       const lastname = capitalizeFirstLetter(user.lastname);
-
+      const securityResponseLower = user.securityResponse.toLowerCase()
       if (user) {
         const passwordEncripted = bcrypt.hashSync(user.password, SALT);
-        const securityResponse = bcrypt.hashSync(user.securityResponse, SALT);
+        const securityResponse = bcrypt.hashSync(securityResponseLower, SALT);
         const creatingUser = await createUser({
           firstname,
           lastname,
@@ -127,18 +128,36 @@ const userController = {
   async putAdminUser(req, res) {
     try {
       const { role, _id, banned, email } = req.body;
-
+      
       if (role || banned) {
         const update = await updateUser(_id, {
           role,
           banned,
         });
-        if (banned) emailBanned(email, update.firstname);
+        if (banned) {
+          emailBanned(email, update.firstname)
+        }
         return res
           .status(200)
-          .json({ success: true, message: "Usuario modificado con éxito" });
+          .json({success: true, message: "Usuario modificado con éxito" });
       }
       throw new Error(wrongPutUser);
+    } catch (error) {
+      res.json({ message: error.message });
+    }
+  },
+
+  async deleteUSer(req, res) {
+    try {
+      const { status, id } = req.query;
+
+      if (status || id) {
+        const updateStatus = await updateUser(id, {
+          status,
+        });
+        return res.status(200).json({ message: "Usuario dado de baja" });
+      }
+      throw new Error(wrongUser);
     } catch (error) {
       res.json({ message: error.message });
     }

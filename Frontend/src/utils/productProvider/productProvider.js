@@ -2,7 +2,6 @@ import axios from "axios"
 import localStorageProvider from "../localStorageProvider/localStorageProvider"
 const cloudName = import.meta.env.VITE_CLOUDINARY_CLOUDNAME
 
-
 const productProvider = {
   async getProducts() {
     try {
