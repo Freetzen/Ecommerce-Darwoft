@@ -28,7 +28,7 @@ const userSchema = new Schema(
     image: {
       type: String,
       default:
-        "https://res.cloudinary.com/dmxmyxi1d/image/upload/v1715712595/iBuytech/perfil-default_trj21f.png",
+        "https://res.cloudinary.com/dmxmyxi1d/image/upload/v1715836010/iBuy/perfil-default_jmx4of.png",
     },
     banned: {
       type: Boolean,

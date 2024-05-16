@@ -23,18 +23,19 @@ const ProductDetail = () => {
     }
 
     useEffect(() => {
-        if(addToCart.quantity > productDetail?.stock)
-          setAddToCart({
-        ...addToCart,
-        quantity: productDetail?.stock
-      })
-    }, [addToCart])
+      if (addToCart.quantity > productDetail?.stock) {
+        setAddToCart((prevCart) => ({
+          ...prevCart,
+          quantity: productDetail?.stock
+        }));
+      }
+    }, [addToCart.quantity, productDetail?.stock]);
 
     useEffect(() => {
       setProductDetail(productFiltered())
       setAddToCart({
-        ...addToCart,
-        id: id
+        id: id,
+        quantity: 1
       })
   }, [products, id])
     

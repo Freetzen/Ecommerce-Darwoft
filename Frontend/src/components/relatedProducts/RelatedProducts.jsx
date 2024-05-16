@@ -15,7 +15,6 @@ const RelatedProducts = ({category, id}) => {
         id={item._id}
         title={item.title}
         brand={item.brand}
-        description={item.title}
         image={item.image}
         price={item.price}
         />
