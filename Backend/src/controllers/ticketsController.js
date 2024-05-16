@@ -58,15 +58,12 @@ const ticketsController = {
           purchases: newTicket._id,
         });
   
-        if (status === 'refused') {
-          return res.json({ success: false, message: 'Lamentablemente, hubo un problema con el procesamiento de tu pago. Por favor, vuelve a intentarlo' });
-        }
+        if (status === 'refused') return res.json({ success: false, message: 'Lamentablemente, hubo un problema con el procesamiento de tu pago. Por favor, vuelve a intentarlo' });
+
+        if (status === 'pending') return res.json({ success: true, message: "¡Gracias por tu compra! Estamos revisando tu pedido y te contactaremos pronto para confirmar los detalles" });
+
+        if (status === 'approve') return res.json({ success: true, status: 'approve', message: "¡Tu compra ha sido exitosa!", data: req.body });
   
-        const successMessage = status === 'pending'
-          ? "¡Gracias por tu compra! Estamos revisando tu pedido y te contactaremos pronto para confirmar los detalles"
-          : "¡Tu compra ha sido exitosa!";
-  
-        return res.json({ success: true, message: successMessage, userToUpdate });
       }
     } catch (error) {
       return res.status(500).json({ message: error.message });

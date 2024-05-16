@@ -180,14 +180,17 @@ const productSlice = createSlice({
     });
 
     builder.addCase(postTicket.fulfilled, (state, action) => {
+      console.log(action.payload)
       if (action.payload.status === 'approve') {
         const info = action.payload.data.info;
         info.forEach((productInfo) => {
           const { idProduct, quantity } = productInfo;
           const productIndex = state.products.findIndex((product) => product._id === idProduct);
           if (productIndex !== -1) {
-            state.products[productIndex].stock -= quantity;
-            state.productsFilter[productIndex].stock -= quantity;
+            const updatedProduct = { ...state.products[productIndex] };
+            updatedProduct.stock -= quantity;
+            state.products[productIndex] = updatedProduct;
+            state.productsFilter[productIndex] = updatedProduct;
           }
         });
       }
