@@ -45,7 +45,6 @@ const AdminDetailProduct = ({ setSelectOption, selectOption }) => {
   const handleUpdateProduct = async (e) => {
     e.preventDefault();
     const update = await dispatch(putProductAdmin(productDetail))
-    console.log(update)
   };
 
   return (

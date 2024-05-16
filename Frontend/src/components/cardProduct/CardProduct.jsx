@@ -19,7 +19,7 @@ const CardProduct = ({id, title, image, price}) => {
             <img src={image} alt={title} />
             </div>
             <h4>{title}</h4>
-            <p>${price}</p>
+            <p>${price.toLocaleString("es-ES")}</p>
             <Link className={style.cartLogo} onClick={scrollToTop} to={`/products/${id}`}>
                 <FaBagShopping/>
             </Link>

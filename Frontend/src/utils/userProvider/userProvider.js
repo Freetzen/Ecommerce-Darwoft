@@ -79,6 +79,16 @@ const userProvider = {
     } catch (error) {
       console.log(error.message)
     }
+  },
+
+  async restorePassword(user){
+    try {
+      const response = await axios.post('/api/auth/user/restore-password', user);
+      console.log('PROVIDER RESTORE')
+      return response
+    } catch (error) {
+      console.log(error.message)
+    }
   }
 
 }

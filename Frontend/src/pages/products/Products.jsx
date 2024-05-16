@@ -2,7 +2,6 @@ import style from './Products.module.css'
 import { useSelector } from 'react-redux'
 import CardProduct from '../../components/cardProduct/CardProduct'
 import Filters from '../../components/filters/Filters'
-import { useEffect } from 'react'
 
 const Products = ({categoryFilter, setCategoryFilter}) => {
 

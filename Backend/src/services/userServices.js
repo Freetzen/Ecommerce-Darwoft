@@ -2,7 +2,7 @@ import userModel from "../models/userModel.js";
 
 export const findUsers = async () => {
     try {
-        return await userModel.find().select('-password')
+        return await userModel.find().select('-password -securityQuestion -securityResponse');
     } catch (error) {
         throw new Error(error);
     }
@@ -24,19 +24,19 @@ export const findUserByEmail = async (email) => {
         throw new Error(error);
     }
 }
-
-export const createUser = async (user) => {
+export const findUserByEmailAndRestore = async (email) => {
     try {
-        const newUser = await userModel.create(user);
-        return newUser;
+        const user = await userModel.findOne({ email }).select('securityQuestion securityResponse email').exec();
+        return user
     } catch (error) {
         throw new Error(error);
     }
 }
 
-export const deleteUser = async (id) => {
+export const createUser = async (user) => {
     try {
-        return await userModel.findByIdAndDelete(id);
+        const newUser = await userModel.create(user);
+        return newUser;
     } catch (error) {
         throw new Error(error);
     }

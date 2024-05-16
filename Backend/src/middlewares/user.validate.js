@@ -6,6 +6,8 @@ const userValidate = {}
 userValidate.validatePostUser = [
     check('firstname').trim().notEmpty().withMessage('Ingrese un Nombre'),
     check('lastname').trim().notEmpty().withMessage('Ingrese un Apellido'),
+    check('securityQuestion').trim().notEmpty().withMessage('Ingrese una pregunta de seguridad'),
+    check('securityResponse').trim().notEmpty().withMessage('Ingrese una respuesta de seguridad'),
     check('email').trim().isEmail().withMessage('Ingrese un Email'),
     check('password').trim().notEmpty().withMessage('Ingrese una Contraseña'),
     handleValidateErrors

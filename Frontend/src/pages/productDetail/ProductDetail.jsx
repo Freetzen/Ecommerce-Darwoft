@@ -32,6 +32,10 @@ const ProductDetail = () => {
 
     useEffect(() => {
       setProductDetail(productFiltered())
+      setAddToCart({
+        ...addToCart,
+        id: id
+      })
   }, [products, id])
     
     const handleQuantityChange = (e) => {

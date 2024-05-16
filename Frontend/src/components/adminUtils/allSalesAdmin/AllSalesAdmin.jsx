@@ -24,21 +24,23 @@ const AllSalesAdmin = () => {
   const groupSalesByDay = (salesData) => {
     const groupedSales = {};
     salesData.forEach((sale) => {
-      const date = new Date(sale.createdAt).toLocaleDateString();
-      if (!groupedSales[date]) {
-        groupedSales[date] = 0;
+      if (sale.statusPayment === 'approve') {
+        const date = new Date(sale.createdAt).toLocaleDateString();
+        if (!groupedSales[date]) {
+          groupedSales[date] = 0;
+        }
+        groupedSales[date] += sale.totalPrice;
       }
-      groupedSales[date] += sale.totalPrice;
     });
     return groupedSales;
   };
 
   const formatSalesDataForChart = (groupedSales) => {
-    return Object.keys(groupedSales).map((date) => ({
-      date,
-      totalSales: groupedSales[date],
-    }));
-  };
+  return Object.keys(groupedSales).map((date) => ({
+    date,
+    totalSales: groupedSales[date],
+  }));
+};
 
   useEffect(() => {
     if (salesData.length > 0) {

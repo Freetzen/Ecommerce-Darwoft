@@ -14,6 +14,8 @@ const PanelUser = ({loading}) => {
     setSelectOption(e.target.name)
   }
 
+  
+
   return (
     <div className={style.panelUserContainer}>
       {loading ? (

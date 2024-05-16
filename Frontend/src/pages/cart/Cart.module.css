@@ -1,3 +1,158 @@
-.cartContainer{
-    min-height: calc(100vh - 150px - 61px);
+.containerTableCart{
+  min-height: calc(100vh - 200px - 110px);
+}
+
+.divCartEmpty{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.cartContainer {
+  margin: 20px;
+  min-height: calc(100vh - 200px - 110px);
+}
+
+.cartContainer h1{
+  padding-top: 120px;
+  margin-bottom: 40px;
+}
+
+.containerTableCart{
+  padding: 120px;
+}
+
+.cartContainer h2 {
+  font-size: 24px;
+  margin-bottom: 40px;
+}
+
+.tableContainer {
+  overflow-x: auto;
+}
+
+.cartTable {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.cartTable th,
+.cartTable td {
+  border: 1px solid #ccc;
+  padding: 8px;
+}
+
+.cartTable th {
+  background-color: #f2f2f2;
+}
+
+.cartTable td {
+  text-align: center;
+}
+
+.cartTable td:first-child {
+  text-align: left;
+}
+
+.cartTable button {
+  padding: 5px 10px;
+  font-size: 14px;
+  border: none;
+  background-color: #007bff;
+  color: #fff;
+  cursor: pointer;
+}
+
+.cartTable button:hover {
+  background-color: #0056b3;
+}
+
+.totalContainer {
+  margin-top: 20px;
+  text-align: right;
+}
+
+.totalContainer p {
+  font-size: 18px;
+}
+
+.totalContainer button {
+  margin-left: 15px;
+  padding: 10px 20px;
+  font-size: 16px;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.productRemove {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.productRemove button {
+  border: none;
+  background-color: rgba(255, 255, 255, 0);
+}
+
+.productRemove button:hover {
+  background-color: rgba(255, 255, 255, 0);
+}
+
+.productRemove .productTrash {
+  margin-top: -2px;
+  color: red;
+  font-size: 15px;
+}
+
+.productRemove .minusPlus {
+  color: #333;
+  font-size: 25px;
+}
+
+@media screen and (max-width: 1300px) {
+  .containerTableCart{
+    padding: 60px;
+  }
+}
+@media screen and (max-width: 600px) {
+  .cartContainer {
+    margin: 10px;
+  }
+  
+  .containerTableCart {
+    padding: 10px;
+  }
+  
+  .tableContainer {
+    overflow-x: auto;
+  }
+  
+  .cartTable th,
+  .cartTable td {
+    padding: 5px;
+    font-size: 12px;
+  }
+
+  .totalContainer p {
+    font-size: 14px;
+  }
+
+  .totalContainer button {
+    padding: 8px 15px;
+    font-size: 14px;
+  }
+  
+  .productRemove{
+    flex-direction: column;
+  }
+
+  .divMinusPlus{
+    display: flex;
+    
+  }
+  
 }

@@ -85,7 +85,7 @@ const productProvider = {
       const responseData = await upload.json();
       return responseData;
     } catch (error) {
-      console.log(error);
+      console.log(error.message);
     }
   },
 };

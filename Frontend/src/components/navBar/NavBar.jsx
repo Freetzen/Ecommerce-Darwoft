@@ -41,26 +41,31 @@ const NavBar = ({ loading }) => {
             {
             !user ? (
               <>
+              <Link to="/contact" onClick={toggleNavbar}>Contact</Link>
                 <Link to="/register" onClick={toggleNavbar}>Register</Link>
                 <Link to="/login" onClick={toggleNavbar}>Login</Link>
+                <Link to={'/cart'} className={style.iconBagDesktop}><IoBagOutline/></Link>
               </>
             ) : (
               <>
                 {user?.role === 'admin' 
-                ? <Link to="/backoffice" onClick={toggleNavbar}>Admin</Link> 
+                ? <>
+                  <Link to="/backoffice" onClick={toggleNavbar}>Admin</Link> 
+                  <Link to="/" onClick={handleLogOut}>Logout</Link>
+                </>
                 : (
                   <>
                 <Link to="/account" onClick={toggleNavbar}>Account</Link>
                 <Link to="/contact" onClick={toggleNavbar}>Contact</Link>
+                <Link to="/" onClick={handleLogOut}>Logout</Link>
+                <Link to={'/cart'} className={style.iconBagDesktop}><IoBagOutline/></Link>
                 </>)
                 }
-                <Link to="/" onClick={handleLogOut}>Logout</Link>
               </>
             )
           }
             </>
           }
-          <Link to={'/cart'} className={style.iconBagDesktop}><IoBagOutline/></Link>
         </div>
         <div className={style.navbarToggle} >
           <Link to={'/cart'} className={style.iconBag}><IoBagOutline/></Link>

@@ -10,7 +10,6 @@ const Filters = ({categoryFilter, setCategoryFilter}) => {
 
   useEffect(() => {
     if(categoryFilter === 'reset'){
-      console.log('FILTER',categoryFilter)
       setPriceOrder('disable');
     }
   }, [categoryFilter]);

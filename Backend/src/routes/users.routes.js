@@ -14,6 +14,7 @@ router.get('/validate', adminOrUser) //Validamos si es Admin o User
 router.post('/login',userValidate.validateLoginUser,  userController.getUser) //Login
 router.post('/register', userValidate.validatePostUser, userController.postUser) //Register
 router.put('/user', userController.putUser) //Update user
+router.post('/user/restore-password', userController.restorePassword) //Restore Password
 
 //Admin
 router.route('/user-admin')

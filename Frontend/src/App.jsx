@@ -20,6 +20,8 @@ import ProtectedRouteAdmin from './components/protectedRoute/ProtectedRouteAdmin
 import ProtectedRouteUser from './components/protectedRoute/ProtectedRouteUser'
 import NotFound from './components/NotFound/NotFound'
 import ProductsCategory from './pages/productsCategory/ProductsCategory'
+import RestorePassword from './pages/restorePassword/RestorePassword'
+import Contact from './pages/contact/Contact'
 axios.defaults.baseURL = import.meta.env.VITE_BASE_URL
 
 
@@ -54,6 +56,7 @@ function App() {
         <Route path='/' element={<Home setCategoryFilter={setCategoryFilter}/>}/>
         <Route path='/register' element={<Register/>}/>
         <Route path='/login' element={<Login/>}/>
+        <Route path='/contact' element={<Contact/>}/>
 
         <Route element={<ProtectedRouteAdmin/>}>
           <Route path={'/backoffice'} element={<PanelAdmin />} /> {/* RUTA DEL ADMINISTRADOR */}
@@ -68,6 +71,7 @@ function App() {
         <Route path='/products/:id' element={<ProductDetail/>}/>
         <Route path='/products/category/:category' element={<ProductsCategory/>}/>
         <Route path='/cart' element={<Cart/>}/>
+        <Route path='/restore-password' element={<RestorePassword/>}/>
         <Route path='*' element={<NotFound/>}/>
       </Routes>
       <Footer />

@@ -23,11 +23,12 @@ const ticketsProvider = {
         console.log(error.message)
     }
   },
-  async postTicketUser() {
+  async postTicketUser(ticket) {
     try {
-        
+        const newTicket = await axios.post('/api/ticket', ticket)
+        return newTicket
     } catch (error) {
-        
+        console.log(error.message)
     }
   },
 }

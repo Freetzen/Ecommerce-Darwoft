@@ -1,5 +1,4 @@
 import style from './NotFound.module.css'
-import notFound from '../../../public/images/404NotFound.png'
 
 const NotFound = () => {
   return (

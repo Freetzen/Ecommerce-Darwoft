@@ -67,7 +67,6 @@ const CreateProduct = () => {
       }
 
     const ala = await dispatch(createProduct(product))
-    console.log(ala)
     if(ala.payload?.success){
       formRef.current.reset();
       setProduct(inicialState)

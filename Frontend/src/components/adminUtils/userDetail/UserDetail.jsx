@@ -2,6 +2,9 @@ import style from "./UserDetail.module.css";
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { userPurchaseAsync, userUpdateAdmin } from "../../../redux/authSlice";
+import { FiAlertCircle } from "react-icons/fi";
+import { MdOutlineCheckCircle } from "react-icons/md";
+import { GoXCircle } from "react-icons/go";
 
 const UserDetail = ({ setSelectOption, selectOption, allUsers }) => {
   const dispatch = useDispatch();
@@ -35,8 +38,20 @@ const UserDetail = ({ setSelectOption, selectOption, allUsers }) => {
   const handleUpdate = async (e) => {
     e.preventDefault();
     const update = await dispatch(userUpdateAdmin(userInfo));
-    console.log(update);
   };
+
+  function switchStatus(key) {
+    switch (key) {
+      case "approve":
+        return <MdOutlineCheckCircle className={style.iconStatusApprove} />;
+      case "pending":
+        return <FiAlertCircle className={style.iconStatusPending} />;
+      case "refused":
+        return <GoXCircle className={style.iconStatusRefused} />;
+      default:
+        break;
+    }
+  }
 
   return (
     <div className={style.prueba}>
@@ -87,7 +102,8 @@ const UserDetail = ({ setSelectOption, selectOption, allUsers }) => {
                 <thead>
                   <tr>
                     <th colSpan="5">
-                      Compra #{index + 1} | {purchase.statusPayment}
+                      Compra #{index + 1} |{" "}
+                      {switchStatus(purchase.statusPayment)}
                     </th>
                   </tr>
                   <tr>

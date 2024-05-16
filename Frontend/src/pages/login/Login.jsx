@@ -86,7 +86,7 @@ const Login = () => {
             Iniciar sesión
           </button>
         </form>
-        <Link to="/forgot-password" className={style.forgotPassword}>
+        <Link to="/restore-password" className={style.forgotPassword}>
           Olvidé mi contraseña
         </Link>
         </div>
