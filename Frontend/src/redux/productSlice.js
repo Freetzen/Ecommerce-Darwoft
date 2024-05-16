@@ -187,9 +187,9 @@ const productSlice = createSlice({
           const productIndex = state.products.findIndex((product) => product._id === idProduct);
           if (productIndex !== -1) {
             state.products[productIndex].stock -= quantity;
+            state.productsFilter[productIndex].stock -= quantity;
           }
         });
-        state.productsFilter = [...state.products];
       }
     });
   },
