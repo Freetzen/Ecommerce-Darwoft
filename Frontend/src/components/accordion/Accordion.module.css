@@ -17,3 +17,10 @@
 .accordionHeader p{
     text-align: center;
 }
+
+@media screen and (max-width: 800px) {
+    .accordionHeader{
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+}

@@ -9,6 +9,7 @@ const Contact = () => {
     const navigate = useNavigate()
 
   const [state, handleSubmit] = useForm("xrgndrnk");
+
   if (state.succeeded) {
        Swal.fire({
         position: "center",
