@@ -40,9 +40,8 @@ const UserPurchases = () => {
 
   return (
     <div className={style.purchasesContainer}>
-    <h2>Mis Compras</h2>
-    {purchases
-  .filter((purchase) => ['approve', 'pending'].includes(purchase.statusPayment))
+    <h2>{purchases ? 'Mis Compras' : 'Aún no hay compras'}</h2>
+    {purchases?.filter((purchase) => ['approve', 'pending'].includes(purchase.statusPayment))
   .map((purchase, index) => (
     <div key={`${purchase.idProduct}-${index}`} className={style.purchaseCard}>
       <table className={style.purchaseTable}>

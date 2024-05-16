@@ -180,7 +180,6 @@ const productSlice = createSlice({
     });
 
     builder.addCase(postTicket.fulfilled, (state, action) => {
-      console.log(action.payload)
       if (action.payload.status === 'approve') {
         const info = action.payload.data.info;
         info.forEach((productInfo) => {
