@@ -88,7 +88,7 @@ const RestorePassword = () => {
   return (
     <div className={style.containerResetPassword}>
       {restore.step === 1 ? (
-        <div>
+        <div className={style.loginContainer}>
           <label>Ingrese su Email:</label>
           <input
             type="email"
@@ -99,7 +99,7 @@ const RestorePassword = () => {
           <button onClick={handleSendEmail}>Enviar</button>
         </div>
       ) : restore.step === 2 ? (
-        <div>
+        <div className={style.loginContainer}>
           <label>{restore.securityQuestion}</label>
           <input
             type="text"
@@ -110,7 +110,7 @@ const RestorePassword = () => {
           <button onClick={handleSendEmail}>Enviar</button>
         </div>
       ) : restore.step === 3 ? (
-        <div>
+        <div className={style.loginContainer}>
           <label>Ingrese una contraseña nueva</label>
           <input
             type="password"
@@ -118,7 +118,7 @@ const RestorePassword = () => {
             value={restore.password}
             onChange={handleChange}
           />
-          <button onClick={handleSendEmail}>Cambiar contraseña</button>
+          <button onClick={handleSendEmail}>Cambiar</button>
         </div>
       ) : null}
     </div>
