@@ -1,4 +1,4 @@
-import { Route, Routes } from 'react-router-dom'
+import { Route, Routes, useNavigate } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { validateLoginAsync } from './redux/authSlice'
@@ -22,11 +22,14 @@ import NotFound from './components/NotFound/NotFound'
 import ProductsCategory from './pages/productsCategory/ProductsCategory'
 import RestorePassword from './pages/restorePassword/RestorePassword'
 import Contact from './pages/contact/Contact'
+import Swal from 'sweetalert2'
 axios.defaults.baseURL = import.meta.env.VITE_BASE_URL
 
 
 const token = localStorageProvider.getToken()
 function App() {
+
+  const navigate = useNavigate()
 
   const [loading, setLoading] = useState(false)
   const [categoryFilter, setCategoryFilter] = useState('')
@@ -39,7 +42,18 @@ function App() {
 
   const validate = async() => {
     setLoading(true)
-    await dispatch(validateLoginAsync())
+    const login = await dispatch(validateLoginAsync())
+    if(login.payload?.message === 'jwt expired'){
+      Swal.fire({
+        position: "center",
+        icon: "error",
+        title: `Debe iniciar sesión`,
+        showConfirmButton: false,
+        timer: 1200,
+      });
+      navigate('/login')
+      localStorageProvider.deleteToken()
+    }
     setLoading(false)
   }
 

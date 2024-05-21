@@ -4,7 +4,6 @@ import userProvider from '../utils/userProvider/userProvider';
 import Swal from 'sweetalert2';
 import ticketsProvider from '../utils/ticketsProvider/ticketsProvider';
 
-
 export const registerAsync = createAsyncThunk(
     "auth/registerAsync",
     async (credentials) => {
@@ -47,6 +46,7 @@ export const validateLoginAsync = createAsyncThunk(
   "auth/validateLoginAsync",
   async () => {
     const response = await userProvider.validateUser()
+    if(response.message === 'jwt expired') return response
     return response.data
   }
 );
