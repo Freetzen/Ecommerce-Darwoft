@@ -1,5 +1,5 @@
 import style from './Login.module.css'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import {loginAsync } from '../../redux/authSlice'
@@ -17,6 +17,13 @@ const Login = () => {
 
   const navigate = useNavigate();
   const dispatch = useDispatch()
+
+
+  useEffect(() => {
+    const token = localStorage.getItem('token')
+    if(token) navigate('/')
+  }, [])
+  
 
   const handleChange = (e) => {
     setUserInfo({

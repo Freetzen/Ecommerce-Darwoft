@@ -1,5 +1,5 @@
 import style from "./Register.module.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { registerAsync } from "../../redux/authSlice";
@@ -18,6 +18,11 @@ const Register = () => {
     securityResponse: "",
   });
   const [errors, setErrors] = useState({});
+
+  useEffect(() => {
+    const token = localStorage.getItem('token')
+    if(token) navigate('/')
+  }, [])
 
   const handleChange = (e) => {
     setUserInfo({
