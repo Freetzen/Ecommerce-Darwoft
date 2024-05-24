@@ -33,7 +33,7 @@ const registerValidator = (input) => {
       else{
           if(!regexPassword.test(input.password)) errors.password = 'Debe contener al menos un número'
           if(input.password.length < 6) errors.password = 'Al menos 6 caracteres'
-          if(input.password.length > 10) errors.password = 'Máximo 10 caracteres'
+          if(input.password.length > 15) errors.password = 'Máximo 15 caracteres'
       }
   
   
